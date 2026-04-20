@@ -157,5 +157,5 @@ app.post("/simulate", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`✅ HR Workflow backend running at http://localhost:${PORT}`);
+  console.log(` HR Workflow backend running at http://localhost:${PORT}`);
 });
