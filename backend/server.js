@@ -122,7 +122,7 @@ app.post("/simulate", (req, res) => {
       case "end":
         steps.push({
           step: stepNum++,
-          message: `🏁 Workflow ended — "${node.data?.endMessage || label}"`,
+          message: ` Workflow ended — "${node.data?.endMessage || label}"`,
           nodeId: node.id,
           type: "end",
         });
