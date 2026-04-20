@@ -56,7 +56,7 @@ app.post("/simulate", (req, res) => {
   const startNode = nodes.find((n) => n.type === "start");
   if (!startNode) {
     return res.json({
-      steps: [{ step: 1, message: "❌ No Start node found. Please add a Start node." }],
+      steps: [{ step: 1, message: " No Start node found. Please add a Start node." }],
     });
   }
 
@@ -78,7 +78,7 @@ app.post("/simulate", (req, res) => {
       case "start":
         steps.push({
           step: stepNum++,
-          message: `🟢 Workflow started — "${label}"`,
+          message: `Workflow started — "${label}"`,
           nodeId: node.id,
           type: "start",
         });
@@ -88,7 +88,7 @@ app.post("/simulate", (req, res) => {
         const due = node.data?.dueDate ? ` (Due: ${node.data.dueDate})` : "";
         steps.push({
           step: stepNum++,
-          message: `📋 Task executed — "${label}"${assignee}${due}`,
+          message: ` Task executed — "${label}"${assignee}${due}`,
           nodeId: node.id,
           type: "task",
         });
@@ -101,7 +101,7 @@ app.post("/simulate", (req, res) => {
           : "";
         steps.push({
           step: stepNum++,
-          message: `✅ Approval requested — "${label}"${role}${threshold}`,
+          message: ` Approval requested — "${label}"${role}${threshold}`,
           nodeId: node.id,
           type: "approval",
         });
@@ -113,7 +113,7 @@ app.post("/simulate", (req, res) => {
           : "";
         steps.push({
           step: stepNum++,
-          message: `⚡ Automated step executed — "${label}"${action}`,
+          message: ` Automated step executed — "${label}"${action}`,
           nodeId: node.id,
           type: "automated",
         });
@@ -144,11 +144,11 @@ app.post("/simulate", (req, res) => {
   }
 
   if (steps.length === 0) {
-    steps.push({ step: 1, message: "⚠️ No nodes to simulate." });
+    steps.push({ step: 1, message: "No nodes to simulate." });
   } else {
     steps.push({
       step: stepNum,
-      message: `✨ Simulation complete — ${steps.length} step(s) executed.`,
+      message: `Simulation complete — ${steps.length} step(s) executed.`,
       type: "summary",
     });
   }
