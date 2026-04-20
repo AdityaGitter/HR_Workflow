@@ -32,12 +32,12 @@ export default function SimulationPanel() {
   };
 
   const stepColors: Record<string, string> = {
-    start:     "border-emerald-500/30 bg-emerald-500/5 text-emerald-300",
-    task:      "border-blue-500/30    bg-blue-500/5    text-blue-300",
-    approval:  "border-amber-500/30   bg-amber-500/5   text-amber-300",
-    automated: "border-violet-500/30  bg-violet-500/5  text-violet-300",
-    end:       "border-rose-500/30    bg-rose-500/5    text-rose-300",
-    summary:   "border-white/10       bg-white/5       text-foreground/70",
+    start:     "border-emerald-200 bg-emerald-50 text-emerald-800",
+    task:      "border-blue-200    bg-blue-50    text-blue-800",
+    approval:  "border-amber-200   bg-amber-50   text-amber-800",
+    automated: "border-violet-200  bg-violet-50  text-violet-800",
+    end:       "border-rose-200    bg-rose-50    text-rose-800",
+    summary:   "border-gray-200    bg-gray-50    text-gray-500",
   };
 
   const exportWorkflow = () => {
@@ -137,10 +137,10 @@ export default function SimulationPanel() {
                     stepColors[step.type ?? "summary"] ?? stepColors["summary"]
                   )}
                 >
-                  <span className="shrink-0 font-mono text-[10px] font-bold opacity-50 mt-0.5 bg-white/10 rounded px-1 py-0.5">
+                  <span className="shrink-0 font-mono text-[10px] font-bold mt-0.5 bg-gray-200 text-gray-700 rounded px-1 py-0.5">
                     {String(step.step).padStart(2, "0")}
                   </span>
-                  <span className="leading-snug">{step.message}</span>
+                  <span className="leading-snug text-gray-900">{step.message}</span>
                 </div>
               ))}
             </div>

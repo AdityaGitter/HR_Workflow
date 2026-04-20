@@ -103,7 +103,7 @@ export default function NodePanel() {
             <>
               <FieldGroup label="Title">
                 <Input
-                  value={node.data.title ?? ""}
+                  value={typeof node.data.title === "string" && node.data.title.trim() === "Start Workflow" ? "" : (node.data.title ?? "")}
                   onChange={(e) => update({ title: e.target.value })}
                   placeholder="e.g. Employee Onboarding"
                 />
@@ -181,7 +181,7 @@ export default function NodePanel() {
             <>
               <FieldGroup label="Title">
                 <Input
-                  value={node.data.title ?? ""}
+                  value={typeof node.data.title === "string" && node.data.title.trim() === "New Task" ? "" : (node.data.title ?? "")}
                   onChange={(e) => update({ title: e.target.value })}
                   placeholder="e.g. Complete Paperwork"
                 />
@@ -218,7 +218,7 @@ export default function NodePanel() {
             <>
               <FieldGroup label="Title">
                 <Input
-                  value={node.data.title ?? ""}
+                  value={typeof node.data.title === "string" && node.data.title.trim() === "Approval Step" ? "" : (node.data.title ?? "")}
                   onChange={(e) => update({ title: e.target.value })}
                   placeholder="e.g. Manager Approval"
                 />
@@ -247,7 +247,7 @@ export default function NodePanel() {
             <>
               <FieldGroup label="Title">
                 <Input
-                  value={node.data.title ?? ""}
+                  value={typeof node.data.title === "string" && node.data.title.trim() === "Automated Step" ? "" : (node.data.title ?? "")}
                   onChange={(e) => update({ title: e.target.value })}
                   placeholder="e.g. Send Welcome Email"
                 />
