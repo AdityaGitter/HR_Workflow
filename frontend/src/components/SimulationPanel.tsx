@@ -53,11 +53,11 @@ export default function SimulationPanel() {
 
   return (
     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 w-[600px] max-w-[calc(100vw-520px)]">
-      <div className="rounded-2xl border border-white/10 bg-[#0f0f1a]/95 backdrop-blur-xl shadow-2xl overflow-hidden">
+      <div className="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
         {/* Toolbar */}
-        <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5">
+        <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-200">
           <Button
-            variant="gradient"
+            variant="outline"
             size="sm"
             onClick={handleSimulate}
             disabled={isSimulating || nodes.length === 0}
@@ -76,7 +76,7 @@ export default function SimulationPanel() {
             size="sm"
             onClick={exportWorkflow}
             disabled={nodes.length === 0}
-            className="gap-2 border-white/10 bg-white/5"
+            className="gap-2 bg-gray-200 text-gray-500 border-gray-300 hover:bg-gray-300 hover:text-gray-700"
           >
             <DownloadCloud className="w-3.5 h-3.5" />
             Export JSON

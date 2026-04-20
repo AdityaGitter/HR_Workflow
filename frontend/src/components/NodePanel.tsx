@@ -55,17 +55,17 @@ export default function NodePanel() {
 
   if (!node) {
     return (
-      <aside className="w-72 flex flex-col h-full bg-[#0f0f1a] border-l border-white/5">
-        <div className="flex items-center gap-2 px-4 py-4 border-b border-white/5">
-          <span className="text-sm font-semibold text-foreground">Properties</span>
+      <aside className="w-72 flex flex-col h-full bg-white border-l border-gray-200">
+        <div className="flex items-center gap-2 px-4 py-4 border-b border-gray-200">
+          <span className="text-sm font-semibold text-gray-700">Properties</span>
         </div>
         <div className="flex-1 flex flex-col items-center justify-center gap-3 px-6 text-center">
-          <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center">
-            <ClipboardList className="w-5 h-5 text-muted-foreground/40" />
+          <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center">
+            <ClipboardList className="w-5 h-5 text-gray-300" />
           </div>
           <div>
-            <p className="text-sm font-medium text-foreground/60">No node selected</p>
-            <p className="text-xs text-muted-foreground/40 mt-1 leading-relaxed">
+            <p className="text-sm font-medium text-gray-400">No node selected</p>
+            <p className="text-xs text-gray-300 mt-1 leading-relaxed">
               Click any node on the canvas to view and edit its properties
             </p>
           </div>
@@ -77,18 +77,18 @@ export default function NodePanel() {
   const cfg = nodeTypeConfig[node.type ?? ""] ?? nodeTypeConfig["task"];
 
   return (
-    <aside className="w-72 flex flex-col h-full bg-[#0f0f1a] border-l border-white/5">
+    <aside className="w-72 flex flex-col h-full bg-white border-l border-gray-200">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-4 border-b border-white/5">
+      <div className="flex items-center justify-between px-4 py-4 border-b border-gray-200">
         <div className="flex items-center gap-2">
-          <span className={cfg.color}>{cfg.icon}</span>
-          <span className="text-sm font-semibold text-foreground">{cfg.label}</span>
-          <Badge variant={cfg.badgeVariant} className="text-[9px]">{cfg.badge}</Badge>
+          <span className="text-gray-400">{cfg.icon}</span>
+          <span className="text-sm font-semibold text-gray-700">{cfg.label}</span>
+          <Badge variant={cfg.badgeVariant} className="text-[9px] bg-gray-100 text-gray-500 border border-gray-200">{cfg.badge}</Badge>
         </div>
         <Button
           variant="ghost"
           size="icon"
-          className="h-7 w-7 text-muted-foreground hover:text-foreground"
+          className="h-7 w-7 text-gray-400 hover:text-gray-700"
           onClick={() => setSelectedNodeId(null)}
         >
           <X className="w-3.5 h-3.5" />

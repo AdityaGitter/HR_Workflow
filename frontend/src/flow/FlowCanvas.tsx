@@ -76,21 +76,20 @@ export default function FlowCanvas() {
     [addNode, allNodes]
   );
 
+  // Use very light colors for a plain, simple look
   const minimapNodeColor = (node: { type?: string }) => {
     const colors: Record<string, string> = {
-      start: "#10b981",
-      task: "#3b82f6",
-      approval: "#f59e0b",
-      automated: "#7c3aed",
-      end: "#f43f5e",
+      start: "#bae6fd",
+      task: "#dbeafe",
+      approval: "#fef9c3",
+      automated: "#ede9fe",
+      end: "#fecaca",
     };
-    return colors[node.type ?? ""] ?? "#6b7280";
+    return colors[node.type ?? ""] ?? "#e5e7eb";
   };
 
-
-
   return (
-    <div className="relative flex-1 h-full bg-[#080812]" ref={reactFlowWrapper}>
+    <div className="relative flex-1 h-full bg-white" ref={reactFlowWrapper}>
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -107,36 +106,34 @@ export default function FlowCanvas() {
         fitView
         fitViewOptions={{ padding: 0.2 }}
         defaultEdgeOptions={{
-          animated: true,
-          style: { stroke: "#7c3aed", strokeWidth: 2 },
+          animated: false,
+          style: { stroke: "#e5e7eb", strokeWidth: 2 },
         }}
         proOptions={{ hideAttribution: true }}
-        className="!bg-[#080812]"
+        className="!bg-white"
       >
         <Background
           variant={BackgroundVariant.Dots}
-          gap={20}
+          gap={24}
           size={1}
-          color="#ffffff0d"
+          color="#e5e7eb"
         />
-        <Controls
-          className="!bg-[#0f0f1a] !border !border-white/10 !rounded-xl !shadow-xl overflow-hidden [&>button]:!bg-transparent [&>button]:!border-white/5 [&>button]:!text-muted-foreground [&>button:hover]:!bg-white/5 [&>button:hover]:!text-foreground"
-        />
+        <Controls className="!bg-white !border !border-gray-200 !rounded-lg !shadow-sm overflow-hidden [&>button]:!bg-transparent [&>button]:!border-none [&>button]:!text-gray-400 [&>button:hover]:!bg-gray-100 [&>button:hover]:!text-gray-700" />
         <MiniMap
           nodeColor={minimapNodeColor}
-          className="!bg-[#0f0f1a] !border !border-white/10 !rounded-xl"
-          maskColor="rgba(0,0,0,0.6)"
+          className="!bg-white !border !border-gray-200 !rounded-lg"
+          maskColor="rgba(0,0,0,0.04)"
         />
 
         {/* Empty state hint */}
         {nodes.length === 0 && (
           <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none">
-            <div className="text-center space-y-3 opacity-30">
-              <div className="text-5xl">⬡</div>
-              <p className="text-base font-medium text-foreground">
+            <div className="text-center space-y-3 opacity-40">
+              <div className="text-5xl">⬜</div>
+              <p className="text-base font-medium text-gray-500">
                 Drag nodes from the sidebar
               </p>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-gray-400">
                 Connect them to build your workflow
               </p>
             </div>
